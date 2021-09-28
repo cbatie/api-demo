@@ -11,7 +11,7 @@ class App extends Component {
     fetch('http://ec2-52-23-228-96.compute-1.amazonaws.com:7070/ecoms-api/setup/get_industries/')
     .then(res => res.json())
     .then((data) => {
-      this.setState({ contacts: data })
+      this.setState({ contacts: data.industries })
     })
     .catch(console.log)
   }
