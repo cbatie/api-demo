@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const PersonList = () => {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const url = 'http://ec2-52-23-228-96.compute-1.amazonaws.com:7070/ecoms-api/setup/get_industries/';
-    fetch(url).then(res => res.json())
-    .then(res => setPosts(res))
-  },[])
-  
-  return (
-    <div className="container">
-      {posts.message}
-      {posts.industries.industry_id}
+    const PersonList = ({ contacts }) => {
+      return (
+        <div>
+          <h1>Contact List</h1>
+          {contacts.map((contact) => (
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{contact.message}</h5>
+                {/* <p class="card-text">{contact.address.geo.lat}</p> */}
 
-    </div>
-  )
-}
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    };
 
-export default PersonList
+    export default PersonList
